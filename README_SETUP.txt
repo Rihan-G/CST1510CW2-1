@@ -1,5 +1,5 @@
 ===========================================
-INTELLIGENCE PLATFORM - CST1510CW2-1
+INTELLIGENCE PLATFORM - CST1510CW2
 ===========================================
 
 
@@ -13,13 +13,9 @@ TO RUN THE APPLICATION:
 2. Run the application:
    streamlit run main.py
 
-FOLDER LOCATION:
---------------------------------
-C:\Users\user\Downloads\CST1510CW2\CST1510CW2-1
+3. create a file name secrets.toml 
+and type command
+GEMINI_API_KEY ="Your actual API KEY"
+with your actual api key inside the comments
 
-VERIFICATION:
---------------------------------
-All Python cache files have been removed and are now excluded via .gitignore.
-
-===========================================
 
