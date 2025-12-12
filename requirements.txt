@@ -1,0 +1,15 @@
+# Core dependencies
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.17.0
+
+# Database & Security
+bcrypt>=4.0.0
+
+# AI Integration
+google-generativeai>=0.3.0
+
+
+
+
