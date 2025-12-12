@@ -2,17 +2,8 @@
 INTELLIGENCE PLATFORM - CST1510CW2-1
 ===========================================
 
-PYTHON CACHE FILE PROTECTION:
---------------------------------
-✓ .gitignore is configured to prevent .pyc files from being committed
-✓ All __pycache__ folders are excluded
-✓ All *.pyc, *.pyo, *.pyd files are excluded
 
-The .gitignore file includes:
-- __pycache__/ directories
-- *.pyc files
-- *.pyo files
-- *.pyd files
+
 
 TO RUN THE APPLICATION:
 --------------------------------
