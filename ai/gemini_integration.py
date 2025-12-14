@@ -133,8 +133,8 @@ class AIIntegration:
         except Exception as e:
             return f"Error: {str(e)}"
 
-    def analyze_incident_patterns(self, incidents: List[Dict[str, Any]]) -> str:
-        """Analyze incidents."""
+    def analyse_incident_patterns(self, incidents: List[Dict[str, Any]]) -> str:
+        """Analyse incidents."""
         if not self.model:
             # Fallback
             if incidents:
@@ -144,7 +144,7 @@ class AIIntegration:
         
         try:
             summary = "\n".join([f"{i.get('title', 'N/A')}: {i.get('severity', 'N/A')}" for i in incidents[:5]])
-            prompt = f"Analyze these incidents:\n{summary}"
+            prompt = f"Analyse these incidents:\n{summary}"
             response = self.model.generate_content(prompt)
             
             if hasattr(response, 'text'):
@@ -156,8 +156,8 @@ class AIIntegration:
         except Exception as e:
             return f"Analysis error: {str(e)[:100]}"
 
-    def analyze_data_quality(self, datasets: List[Dict[str, Any]]) -> str:
-        """Analyze data quality."""
+    def analyse_data_quality(self, datasets: List[Dict[str, Any]]) -> str:
+        """Analyse data quality."""
         if not self.model:
             # Fallback
             if datasets:
@@ -168,7 +168,7 @@ class AIIntegration:
         
         try:
             summary = "\n".join([f"{d.get('name', 'N/A')}: {d.get('quality_score', 'N/A')}/10" for d in datasets[:5]])
-            prompt = f"Analyze data quality:\n{summary}"
+            prompt = f"Analyse data quality:\n{summary}"
             response = self.model.generate_content(prompt)
             
             if hasattr(response, 'text'):

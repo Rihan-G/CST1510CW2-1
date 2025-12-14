@@ -77,7 +77,7 @@ class AIAssistantDashboard:
             cyber_questions = [
                 "What are the most critical security incidents?",
                 "Which threat types are most common?",
-                "Analyze security incident patterns",
+                "Analyse security incident patterns",
                 "What security recommendations do you have?",
                 "How many incidents are still open?",
                 "What's the average resolution time?"
@@ -105,7 +105,7 @@ class AIAssistantDashboard:
             data_questions = [
                 "What's the overall data quality score?",
                 "Which datasets need improvement?",
-                "Analyze data quality trends",
+                "Analyse data quality trends",
                 "What data governance recommendations?",
                 "Which departments have best data quality?",
                 "What's the total data size?"
@@ -133,7 +133,7 @@ class AIAssistantDashboard:
             it_questions = [
                 "What IT tickets need attention?",
                 "What's the average ticket resolution time?",
-                "Analyze IT ticket patterns",
+                "Analyse IT ticket patterns",
                 "Which categories have most tickets?",
                 "What IT recommendations do you have?",
                 "How many tickets are still open?"
@@ -238,9 +238,9 @@ class AIAssistantDashboard:
         """Get dashboard-specific questions based on user role."""
         questions = {
             "admin": {
-                "cybersecurity": ["What are the most critical security incidents?", "Analyze security patterns"],
+                "cybersecurity": ["What are the most critical security incidents?", "Analyse security patterns"],
                 "data_science": ["What's the overall data quality?", "Which datasets need improvement?"],
-                "it_operations": ["What IT tickets need attention?", "Analyze ticket patterns"]
+                "it_operations": ["What IT tickets need attention?", "Analyse ticket patterns"]
             },
             "cybersecurity": ["What are the most critical security incidents?", "Which threat types are most common?"],
             "data_science": ["What's the overall data quality?", "Which datasets need improvement?"],
@@ -320,13 +320,13 @@ class AIAssistantDashboard:
         full_message = user_message + context
         
         # Use appropriate AI method
-        if 'analyze' in user_message.lower() or 'pattern' in user_message.lower():
+        if 'analyse' in user_message.lower() or 'pattern' in user_message.lower():
             if 'incident' in user_message.lower() or 'security' in user_message.lower():
                 incidents = self.db_manager.get_cyber_incidents()
-                return self.ai_engine.analyze_incident_patterns(incidents)
+                return self.ai_engine.analyse_incident_patterns(incidents)
             elif 'data' in user_message.lower() or 'dataset' in user_message.lower():
                 datasets = self.db_manager.get_all_datasets()
-                return self.ai_engine.analyze_data_quality(datasets)
+                return self.ai_engine.analyse_data_quality(datasets)
         
         return self.ai_engine.chat_with_ai(full_message)
     

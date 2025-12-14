@@ -511,8 +511,8 @@ class DataScienceDashboard:
         with ai_col1:
             if st.button("📊 Analyse Quality", key="analyse_quality", use_container_width=True):
                 with st.spinner("🤖 AI is analysing data quality..."):
-                    if self.ai_engine and hasattr(self.ai_engine, 'analyze_data_quality'):
-                        analysis = self.ai_engine.analyze_data_quality(datasets_data)
+                    if self.ai_engine and hasattr(self.ai_engine, 'analyse_data_quality'):
+                        analysis = self.ai_engine.analyse_data_quality(datasets_data)
                         st.markdown("#### Quality Analysis")
                         st.markdown(analysis)
                     else:

@@ -266,8 +266,8 @@ class CyberSecurityDashboard:
         with ai_col1:
             if st.button("📊 Analyse Patterns", key="analyse_patterns", use_container_width=True):
                 with st.spinner("🤖 AI is analysing incident patterns..."):
-                    if self.ai_engine and hasattr(self.ai_engine, 'analyze_incident_patterns'):
-                        analysis = self.ai_engine.analyze_incident_patterns(df.to_dict('records'))
+                    if self.ai_engine and hasattr(self.ai_engine, 'analyse_incident_patterns'):
+                        analysis = self.ai_engine.analyse_incident_patterns(df.to_dict('records'))
                         st.markdown("#### Analysis Results")
                         st.markdown(analysis)
                     else:
