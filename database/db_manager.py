@@ -151,11 +151,13 @@ class DatabaseManager:
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO cyber_incidents 
-            (title, description, threat_type, severity, status, created_at, assigned_to)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            (title, description, threat_type, severity, status, created_at, resolved_at, resolution_time_hours, assigned_to)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             data['title'], data['description'], data['threat_type'],
-            data['severity'], data['status'], data['created_at'], data.get('assigned_to')
+            data['severity'], data['status'], data['created_at'], 
+            data.get('resolved_at'), data.get('resolution_time_hours'),
+            data.get('assigned_to')
         ))
         incident_id = cursor.lastrowid
         conn.commit()
@@ -167,11 +169,12 @@ class DatabaseManager:
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO datasets_metadata 
-            (name, source_department, size_mb, row_count, column_count, quality_score, sensitivity)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            (name, source_department, size_mb, row_count, column_count, quality_score, last_accessed, created_at, sensitivity)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             data['name'], data['source_department'], data['size_mb'], data['row_count'],
-            data['column_count'], data.get('quality_score'), data.get('sensitivity')
+            data['column_count'], data.get('quality_score'), data.get('last_accessed'),
+            data.get('created_at'), data.get('sensitivity')
         ))
         dataset_id = cursor.lastrowid
         conn.commit()
@@ -183,11 +186,12 @@ class DatabaseManager:
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO it_tickets 
-            (title, description, status, assigned_to, current_stage, priority, created_at, category)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            (title, description, status, assigned_to, current_stage, priority, created_at, resolved_at, time_in_stage_hours, category)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             data['title'], data['description'], data['status'], data['assigned_to'],
-            data['current_stage'], data.get('priority', 'Medium'), data['created_at'], data.get('category')
+            data['current_stage'], data.get('priority', 'Medium'), data['created_at'],
+            data.get('resolved_at'), data.get('time_in_stage_hours'), data.get('category')
         ))
         ticket_id = cursor.lastrowid
         conn.commit()
